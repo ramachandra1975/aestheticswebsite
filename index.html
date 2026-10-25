@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="aestheticsofsociety — Naredla Ramachandra. Freelance writer, blogger, editor. Deep research into Natya Shastra, Indian aesthetics, Vedic philosophy, dance and music."/>
+<title>aestheticsofsociety | Naredla Ramachandra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET & VARIABLES ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FDFAF5;
+  --bg2:#F4EFE6;
+  --bg3:#EDE5D8;
+  --ink:#1C1A17;
+  --ink2:#4A453E;
+  --ink3:#7A7268;
+  --accent:#B5541C;
+  --accent2:#C9923A;
+  --gold:#D4A843;
+  --sage:#6B8F6E;
+  --blue:#4A6FA5;
+  --border:rgba(28,26,23,0.10);
+  --border2:rgba(28,26,23,0.18);
+  --radius:12px;
+  --shadow:0 2px 20px rgba(28,26,23,0.07);
+  --shadow2:0 8px 40px rgba(28,26,23,0.12);
+  --trans:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+/* ─── HEADER ─── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  height:68px;
+  background:rgba(253,250,245,0.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  padding:0 2rem;gap:1.5rem;
+}
+
+/* LOGO */
+.logo-area{display:flex;align-items:center;gap:12px;flex-shrink:0;text-decoration:none}
+.logo-spin-wrap{width:46px;height:46px;flex-shrink:0;position:relative}
+.logo-img-spin{
+  width:46px;height:46px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  border:2.5px solid var(--accent);
+  animation:spinLogo 14s linear infinite;
+  display:block;
+}
+.logo-fallback{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;
+  animation:spinLogo 14s linear infinite;
+  border:2.5px solid var(--accent);
+}
+@keyframes spinLogo{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.logo-text-wrap{display:flex;flex-direction:column;line-height:1.2}
+.logo-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:0.2px}
+.logo-handle{font-size:10.5px;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase;font-weight:500}
+
+/* NAV */
+nav.main-nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+nav.main-nav a{
+  font-size:13px;font-weight:400;color:var(--ink2);
+  padding:6px 13px;border-radius:7px;
+  cursor:pointer;text-decoration:none;
+  transition:var(--trans);position:relative;
+}
+nav.main-nav a:hover{color:var(--accent);background:rgba(181,84,28,0.07)}
+nav.main-nav a.active{color:var(--accent);background:rgba(181,84,28,0.09)}
+nav.main-nav a.active::after{
+  content:'';position:absolute;bottom:3px;left:50%;
+  transform:translateX(-50%);width:3px;height:3px;
+  background:var(--accent);border-radius:50%;
+}
+
+/* MUSIC BTN */
+.music-btn{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(107,143,110,0.10);
+  border:1px solid rgba(107,143,110,0.25);
+  border-radius:20px;padding:5px 12px;
+  cursor:pointer;color:var(--sage);font-size:11.5px;font-weight:500;
+  transition:var(--trans);flex-shrink:0;user-select:none;
+}
+.music-btn:hover{background:rgba(107,143,110,0.18)}
+.waves{display:flex;align-items:flex-end;gap:1.5px;height:12px}
+.waves span{width:2px;background:var(--sage);border-radius:1px;animation:wav 1.1s ease-in-out infinite}
+.waves span:nth-child(1){height:3px;animation-delay:0s}
+.waves span:nth-child(2){height:9px;animation-delay:.15s}
+.waves span:nth-child(3){height:5px;animation-delay:.3s}
+.waves span:nth-child(4){height:11px;animation-delay:.08s}
+.waves span:nth-child(5){height:4px;animation-delay:.22s}
+.waves.off span{animation-play-state:paused;height:4px!important}
+@keyframes wav{0%,100%{transform:scaleY(0.4)}50%{transform:scaleY(1)}}
+
+/* HAMBURGER */
+.ham{display:none;background:none;border:none;font-size:20px;color:var(--ink);cursor:pointer;padding:4px 8px}
+
+/* MOBILE NAV */
+.mob-nav{
+  display:none;position:fixed;top:68px;left:0;right:0;z-index:9998;
+  background:var(--bg);border-bottom:1px solid var(--border);
+  padding:1rem;flex-direction:column;gap:4px;
+  box-shadow:var(--shadow2);
+}
+.mob-nav.open{display:flex}
+.mob-nav a{
+  padding:10px 14px;border-radius:8px;font-size:14px;
+  color:var(--ink2);cursor:pointer;text-decoration:none;
+  transition:var(--trans);
+}
+.mob-nav a:hover,.mob-nav a.active{background:rgba(181,84,28,0.07);color:var(--accent)}
+
+/* ─── PAGES ─── */
+.page{display:none;min-height:100vh;padding-top:68px}
+.page.active{display:block}
+
+/* ─── COMMON SECTION HEADER ─── */
+.sec-head{padding:4rem 3rem 2rem;max-width:1200px;margin:0 auto}
+.sec-tag{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.8rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:.75rem}
+.sec-desc{font-size:14.5px;color:var(--ink3);max-width:540px;line-height:1.8}
+
+/* ─── PAGE 1: HOME ─── */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:calc(100vh - 68px);
+  display:flex;align-items:center;
+}
+.hero-bg-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 70% at 68% 50%,rgba(181,84,28,0.06),transparent 65%),
+    radial-gradient(ellipse 35% 50% at 15% 80%,rgba(212,168,67,0.05),transparent 55%),
+    radial-gradient(ellipse 25% 35% at 88% 15%,rgba(74,111,165,0.04),transparent 50%);
+}
+.hero-grid-bg{
+  position:absolute;right:0;top:0;width:52%;height:100%;opacity:0.03;
+  background-image:repeating-linear-gradient(0deg,var(--ink) 0,var(--ink) 1px,transparent 1px,transparent 28px),
+    repeating-linear-gradient(90deg,var(--ink) 0,var(--ink) 1px,transparent 1px,transparent 28px);
+}
+.hero-inner{
+  position:relative;max-width:1200px;margin:0 auto;width:100%;
+  padding:5rem 3rem;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--accent);font-weight:500;margin-bottom:1.4rem;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,5vw,4.8rem);
+  font-weight:400;line-height:1.1;
+  color:var(--ink);margin-bottom:1.4rem;
+}
+.hero-h1 em{font-style:italic;color:var(--accent)}
+.hero-h1 span{display:block;font-size:0.65em;color:var(--ink3);font-weight:400;margin-top:4px}
+.hero-lead{font-size:15px;color:var(--ink2);max-width:440px;line-height:1.85;margin-bottom:2rem}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{
+  background:var(--accent);color:white;border:none;
+  padding:12px 26px;border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;
+  cursor:pointer;transition:var(--trans);text-decoration:none;display:inline-block;
+}
+.btn-p:hover{background:#8E3D0E;transform:translateY(-2px);box-shadow:0 6px 20px rgba(181,84,28,0.28)}
+.btn-s{
+  background:transparent;color:var(--ink);
+  border:1px solid var(--border2);
+  padding:11px 26px;border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:13.5px;
+  cursor:pointer;transition:var(--trans);text-decoration:none;display:inline-block;
+}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* Profile card */
+.profile-card{
+  background:white;border:1px solid var(--border);border-radius:20px;
+  padding:2rem;box-shadow:var(--shadow2);
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.pc-photo{
+  width:100px;height:100px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  border:3px solid var(--bg2);
+  display:block;margin:0 auto 1rem;
+  box-shadow:0 4px 16px rgba(181,84,28,0.18);
+}
+.pc-photo-fallback{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:36px;color:white;
+  margin:0 auto 1rem;
+  box-shadow:0 4px 16px rgba(181,84,28,0.18);
+}
+.pc-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--ink);text-align:center;margin-bottom:3px}
+.pc-role{font-size:11px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:1.2rem}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:1.3rem}
+.pc-tag{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--ink3)}
+.pc-tag.hot{background:rgba(181,84,28,0.08);border-color:rgba(181,84,28,0.2);color:var(--accent)}
+.pc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--border);padding-top:1.1rem}
+.pc-stat{text-align:center}
+.pc-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);line-height:1}
+.pc-lbl{font-size:9.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.7px;margin-top:2px}
+
+/* Feature bar */
+.feat-bar{background:var(--ink);padding:2.5rem 3rem}
+.feat-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.feat-item{text-align:center}
+.feat-icon{font-size:26px;margin-bottom:.6rem;display:block}
+.feat-t{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);margin-bottom:3px}
+.feat-d{font-size:11.5px;color:rgba(255,255,255,0.45);line-height:1.5}
+
+/* Social strip */
+.social-strip{max-width:1200px;margin:0 auto;padding:3.5rem 3rem}
+.social-strip h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:400;color:var(--ink);margin-bottom:.5rem}
+.social-strip p{font-size:14px;color:var(--ink3);margin-bottom:2rem}
+.social-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.soc-card{
+  display:flex;align-items:center;gap:1rem;
+  background:white;border:1px solid var(--border);border-radius:12px;
+  padding:1.2rem 1.5rem;text-decoration:none;color:var(--ink);
+  transition:var(--trans);
+}
+.soc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.soc-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.soc-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink);margin-bottom:2px}
+.soc-handle{font-size:11.5px;color:var(--ink3)}
+
+/* ─── PAGE 2: ABOUT ─── */
+.about-grid{max-width:1200px;margin:0 auto;padding:0 3rem 4rem;display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start}
+.about-sticky{position:sticky;top:84px}
+.about-card{background:white;border:1px solid var(--border);border-radius:18px;padding:2rem;box-shadow:var(--shadow);text-align:center}
+.about-photo{
+  width:120px;height:120px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  border:3px solid var(--bg2);
+  margin:0 auto 1.2rem;display:block;
+  box-shadow:0 4px 20px rgba(181,84,28,0.15);
+  animation:spinLogo 18s linear infinite;
+}
+.about-photo-fb{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:44px;color:white;
+  margin:0 auto 1.2rem;
+  animation:spinLogo 18s linear infinite;
+}
+.about-name{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:3px}
+.about-role{font-size:10.5px;color:var(--accent);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:1rem}
+.about-bio-short{font-size:13px;color:var(--ink3);line-height:1.75;margin-bottom:1.3rem;border-top:1px solid var(--border);padding-top:1.2rem}
+.soc-btns{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.soc-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:7px;font-size:11.5px;font-weight:500;text-decoration:none;transition:var(--trans);border:1px solid var(--border);color:var(--ink2);background:var(--bg2)}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.about-blocks{}
+.ab{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.ab:last-child{border-bottom:none}
+.ab-lbl{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:.6rem}
+.ab-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:.9rem;line-height:1.25}
+.ab-text{font-size:14.5px;color:var(--ink2);line-height:1.9}
+.val-list{list-style:none;margin-top:.9rem;display:flex;flex-direction:column;gap:7px}
+.val-list li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--ink2)}
+.val-list li::before{content:'◆';color:var(--gold);font-size:7px;margin-top:7px;flex-shrink:0}
+
+/* ─── PAGE 3: VIDEOS ─── */
+.vid-page{max-width:1200px;margin:0 auto;padding:0 3rem 4rem}
+.ch-banner{
+  background:linear-gradient(135deg,var(--ink) 0%,#3A2818 100%);
+  border-radius:16px;padding:2rem 2.5rem;
+  display:flex;align-items:center;gap:1.8rem;
+  margin-bottom:2.5rem;overflow:hidden;position:relative;
+}
+.ch-banner::after{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(212,168,67,0.07)}
+.ch-logo{
+  width:66px;height:66px;border-radius:50%;flex-shrink:0;
+  object-fit:cover;object-position:center top;
+  border:2px solid rgba(212,168,67,0.4);
+  animation:spinLogo 14s linear infinite;
+}
+.ch-logo-fb{
+  width:66px;height:66px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:24px;color:white;
+  border:2px solid rgba(212,168,67,0.4);
+  animation:spinLogo 14s linear infinite;
+}
+.ch-info h2{font-family:'Playfair Display',serif;font-size:24px;color:white;font-weight:400;margin-bottom:3px}
+.ch-info p{font-size:12.5px;color:rgba(255,255,255,0.55)}
+.ch-sub{
+  margin-left:auto;flex-shrink:0;
+  background:var(--accent);color:white;
+  border:none;padding:10px 20px;border-radius:8px;
+  font-size:13px;font-weight:500;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:var(--trans);
+}
+.ch-sub:hover{background:var(--gold);color:var(--ink)}
+
+.vid-section-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:1.2rem;font-weight:400}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.3rem;margin-bottom:3rem}
+.vid-card{background:white;border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:var(--trans)}
+.vid-card:hover{transform:translateY(-4px);box-shadow:var(--shadow2)}
+.vid-thumb{aspect-ratio:16/9;background:var(--bg2);overflow:hidden}
+.vid-thumb iframe{width:100%;height:100%;border:none;display:block}
+.vid-info{padding:1rem 1.1rem}
+.vid-num{font-size:9.5px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:4px}
+.vid-title{font-family:'Playfair Display',serif;font-size:15.5px;color:var(--ink);line-height:1.35;margin-bottom:5px}
+.vid-meta{font-size:11.5px;color:var(--ink3);display:flex;gap:10px}
+
+/* ─── PAGE 4: ARTICLES ─── */
+.art-page{max-width:1200px;margin:0 auto;padding:0 3rem 4rem}
+
+/* Highlighted / well-read articles */
+.highlight-strip{
+  background:linear-gradient(135deg,rgba(181,84,28,0.06),rgba(212,168,67,0.05));
+  border:1px solid rgba(181,84,28,0.15);
+  border-radius:16px;padding:2rem 2.5rem;margin-bottom:2.5rem;
+}
+.hs-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.2rem;display:flex;align-items:center;gap:8px}
+.hs-label::before{content:'★';font-size:12px}
+.hs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.hs-item{
+  background:white;border:1px solid var(--border);border-radius:10px;
+  padding:.9rem 1.1rem;cursor:pointer;transition:var(--trans);
+  text-decoration:none;display:block;
+}
+.hs-item:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.hs-cat{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.hs-title{font-family:'Playfair Display',serif;font-size:13.5px;color:var(--ink);line-height:1.35}
+.hs-reads{font-size:10.5px;color:var(--ink3);margin-top:6px}
+
+.art-featured{display:grid;grid-template-columns:2fr 1fr;gap:1.3rem;margin-bottom:1.5rem}
+.art-card{background:white;border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:var(--trans);cursor:pointer;text-decoration:none;display:block;color:inherit}
+.art-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.art-img{height:180px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:40px;border-bottom:1px solid var(--border)}
+.art-img.sm{height:130px;font-size:32px}
+.art-body{padding:1.3rem}
+.art-cat{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.5rem}
+.art-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:.6rem;line-height:1.3}
+.art-title.sm{font-size:16px}
+.art-exc{font-size:13px;color:var(--ink3);line-height:1.7;margin-bottom:.8rem}
+.art-foot{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);border-top:1px solid var(--border);padding-top:.75rem;margin-top:.75rem}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+
+/* ─── PAGE 5: BLOG & GALLERY ─── */
+.blog-page{max-width:1200px;margin:0 auto;padding:0 3rem 4rem}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.3rem;margin-bottom:3rem}
+.blog-card{background:white;border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:var(--trans)}
+.blog-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.blog-datebar{background:var(--ink);padding:.9rem 1.4rem;display:flex;align-items:center;gap:.9rem}
+.blog-day{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:300;line-height:1}
+.blog-my{color:rgba(255,255,255,.55);font-size:11.5px}
+.blog-body{padding:1.3rem}
+.blog-type{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:.5rem}
+.blog-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink);margin-bottom:.6rem;line-height:1.3}
+.blog-desc{font-size:13px;color:var(--ink3);line-height:1.7}
+.gal-label{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:1.2rem;font-weight:400}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.gal-item{
+  aspect-ratio:4/3;background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:36px;cursor:pointer;transition:var(--trans);
+}
+.gal-item:hover{transform:scale(1.03);box-shadow:var(--shadow)}
+
+/* ─── CONTACT ─── */
+.contact-wrap{max-width:1100px;margin:0 auto;padding:0 3rem 4rem;display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.con-info h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:300;color:var(--ink);margin-bottom:.9rem;line-height:1.2}
+.con-info p{font-size:14px;color:var(--ink3);line-height:1.8;margin-bottom:1.8rem}
+.con-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:1rem;padding:.9rem;background:white;border:1px solid var(--border);border-radius:10px}
+.con-ico{width:34px;height:34px;border-radius:7px;background:rgba(181,84,28,0.08);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.con-lbl{font-size:10.5px;color:var(--accent);text-transform:uppercase;letter-spacing:.8px}
+.con-val{font-size:13.5px;color:var(--ink)}
+.con-form{background:white;border:1px solid var(--border);border-radius:18px;padding:2.3rem;box-shadow:var(--shadow)}
+.con-form h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:1.4rem}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:11.5px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px}
+.fg input,.fg textarea,.fg select{
+  width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);
+  background:var(--bg);transition:var(--trans);outline:none;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px rgba(181,84,28,0.07)}
+.fg textarea{resize:vertical;min-height:100px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.con-submit{
+  width:100%;background:var(--accent);color:white;border:none;
+  padding:13px;border-radius:8px;font-family:'Inter',sans-serif;
+  font-size:14px;font-weight:500;cursor:pointer;transition:var(--trans);margin-top:.4rem;
+}
+.con-submit:hover{background:#8E3D0E;transform:translateY(-1px);box-shadow:0 6px 20px rgba(181,84,28,0.25)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);padding:2.5rem 3rem;text-align:center}
+.ft-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:.4rem}
+.ft-tag{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.2rem}
+.ft-links{display:flex;justify-content:center;gap:1.3rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.ft-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:12.5px;cursor:pointer;transition:var(--trans)}
+.ft-links a:hover{color:var(--gold)}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-sticky{position:static}
+  .art-featured{grid-template-columns:1fr}
+  .art-grid{grid-template-columns:1fr 1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  .feat-inner{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .social-cards{grid-template-columns:1fr}
+  nav.main-nav{display:none}
+  .ham{display:block}
+}
+@media(max-width:600px){
+  .art-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .feat-inner{grid-template-columns:1fr}
+  .sec-head,.vid-page,.art-page,.blog-page,.contact-wrap,.about-grid{padding-left:1.2rem;padding-right:1.2rem}
+  .hero-inner{padding:3rem 1.2rem}
+  .hs-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="logo-area" onclick="showPage('home')" style="cursor:pointer">
+    <div class="logo-spin-wrap">
+      <img src="images/profile.jpg" class="logo-img-spin" alt="aestheticsofsociety logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="logo-fallback" style="display:none">A</div>
+    </div>
+    <div class="logo-text-wrap">
+      <span class="logo-name">aestheticsofsociety</span>
+      <span class="logo-handle">Naredla Ramachandra</span>
+    </div>
+  </div>
+
+  <nav class="main-nav" id="mainNav">
+    <a data-page="home" class="active">Home</a>
+    <a data-page="about">About</a>
+    <a data-page="videos">Videos</a>
+    <a data-page="articles">Articles</a>
+    <a data-page="blog">Blog &amp; Gallery</a>
+    <a data-page="contact">Contact</a>
+  </nav>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+    <button class="ham" id="hamBtn" onclick="toggleMob()">☰</button>
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()">
+      <div class="waves off" id="waves"><span></span><span></span><span></span><span></span><span></span></div>
+      <span id="musicLbl">Flute Music</span>
+    </div>
+  </div>
+</header>
+
+<nav class="mob-nav" id="mobNav">
+  <a data-page="home">Home</a>
+  <a data-page="about">About</a>
+  <a data-page="videos">Videos</a>
+  <a data-page="articles">Articles</a>
+  <a data-page="blog">Blog &amp; Gallery</a>
+  <a data-page="contact">Contact</a>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     PAGE 1 — HOME
+══════════════════════════════════ -->
+<section class="page active" id="home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Welcome to</div>
+        <h1 class="hero-h1">
+          aesthetics<br/><em>of society</em>
+          <span>Dharmo Rakshati Rakshitaha</span>
+        </h1>
+        <p class="hero-lead">A passionate researcher's journey through Natya Shastra, Vedic philosophy, Indian classical arts, and the aesthetics that shape our society — by freelance writer, blogger and editor Naredla Ramachandra.</p>
+        <div class="hero-ctas">
+          <button class="btn-p" data-goto="videos">▶ Watch Videos</button>
+          <button class="btn-s" data-goto="articles">Read Articles</button>
+        </div>
+      </div>
+      <div class="hero-visual" id="heroVisual">
+        <div class="profile-card">
+          <img src="images/profile.jpg" class="pc-photo" alt="Naredla Ramachandra"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="pc-photo-fallback" style="display:none">N</div>
+          <div class="pc-name">Naredla Ramachandra</div>
+          <div class="pc-role">Freelance Writer · Blogger · Editor</div>
+          <div class="pc-tags">
+            <span class="pc-tag hot">Natya Shastra</span>
+            <span class="pc-tag hot">Vedic Philosophy</span>
+            <span class="pc-tag">Dance &amp; Music</span>
+            <span class="pc-tag">Sanskrit</span>
+            <span class="pc-tag">Indian Aesthetics</span>
+            <span class="pc-tag">Upanishads</span>
+          </div>
+          <div class="pc-stats">
+            <div class="pc-stat"><div class="pc-num">10+</div><div class="pc-lbl">Videos</div></div>
+            <div class="pc-stat"><div class="pc-num">20+</div><div class="pc-lbl">Articles</div></div>
+            <div class="pc-stat"><div class="pc-num">542</div><div class="pc-lbl">Followers</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE BAR -->
+  <div class="feat-bar">
+    <div class="feat-inner">
+      <div class="feat-item rv"><span class="feat-icon">🎭</span><div class="feat-t">Natya Shastra</div><div class="feat-d">Deep research into ancient Indian performing arts</div></div>
+      <div class="feat-item rv"><span class="feat-icon">📿</span><div class="feat-t">Vedic Philosophy</div><div class="feat-d">Upanishads, Shastras &amp; cosmic study cross-referenced</div></div>
+      <div class="feat-item rv"><span class="feat-icon">🎵</span><div class="feat-t">Dance &amp; Music</div><div class="feat-d">Classical Indian art forms, Rasa &amp; Bhava theory</div></div>
+      <div class="feat-item rv"><span class="feat-icon">✍️</span><div class="feat-t">Writing &amp; Blogging</div><div class="feat-d">Freelance articles, spiritual &amp; cultural commentary</div></div>
+    </div>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="social-strip rv">
+    <div class="sec-tag">Connect</div>
+    <h2>Follow aestheticsofsociety</h2>
+    <p>Watch videos, read articles and join the conversation across all platforms</p>
+    <div class="social-cards">
+      <a class="soc-card" href="https://www.youtube.com/@aestheticsofsociety" target="_blank" rel="noopener" style="--hov:#FF0000" onmouseover="this.style.borderColor='#FF0000'" onmouseout="this.style.borderColor='var(--border)'">
+        <div class="soc-icon" style="background:#FFF0F0">▶️</div>
+        <div><div class="soc-name">YouTube</div><div class="soc-handle">@aestheticsofsociety</div></div>
+      </a>
+      <a class="soc-card" href="https://www.facebook.com/people/Naredla-Ramachandra/100063668961084/" target="_blank" rel="noopener" onmouseover="this.style.borderColor='#1877F2'" onmouseout="this.style.borderColor='var(--border)'">
+        <div class="soc-icon" style="background:#EFF4FF;font-size:20px;font-weight:700;color:#1877F2">f</div>
+        <div><div class="soc-name">Facebook</div><div class="soc-handle">Naredla Ramachandra · 542 likes</div></div>
+      </a>
+      <a class="soc-card" href="https://aestheticsofsociety.wordpress.com/" target="_blank" rel="noopener" onmouseover="this.style.borderColor='#21759B'" onmouseout="this.style.borderColor='var(--border)'">
+        <div class="soc-icon" style="background:#F0F6FA;font-size:18px">📝</div>
+        <div><div class="soc-name">WordPress Blog</div><div class="soc-handle">aestheticsofsociety.wordpress.com</div></div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra · All rights reserved</div>
+  </footer>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PAGE 2 — ABOUT
+══════════════════════════════════ -->
+<section class="page" id="about">
+  <div class="sec-head rv">
+    <div class="sec-tag">Who I Am</div>
+    <h2 class="sec-title">About Naredla Ramachandra</h2>
+    <p class="sec-desc">Freelance writer, blogger, editor — and a passionate researcher in the field of Indian classical dance, music, Vedic philosophy and aesthetics.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-sticky rv">
+      <div class="about-card">
+        <img src="images/profile.jpg" class="about-photo" alt="Naredla Ramachandra"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="about-photo-fb" style="display:none">N</div>
+        <div class="about-name">Naredla Ramachandra</div>
+        <div class="about-role">Freelance Writer · Blogger · Editor · Youtuber</div>
+        <p class="about-bio-short">Passionate researcher in the field of dance and music. Working as a free lance trainer, blogger and YouTuber. Active for 5+ years in digging and working on aesthetics, Vedic texts and Natya Shastra.</p>
+        <div class="soc-btns">
+          <a class="soc-btn" href="https://www.youtube.com/@aestheticsofsociety" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="soc-btn" href="https://www.facebook.com/people/Naredla-Ramachandra/100063668961084/" target="_blank" rel="noopener">f Facebook</a>
+          <a class="soc-btn" href="https://aestheticsofsociety.wordpress.com/" target="_blank" rel="noopener">📝 Blog</a>
+          <a class="soc-btn" href="mailto:naradlaramachandra@yahoo.com">✉ Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-blocks">
+      <div class="ab rv">
+        <div class="ab-lbl">Profile</div>
+        <h3 class="ab-title">The Mind Behind aestheticsofsociety</h3>
+        <p class="ab-text">Naredla Ramachandra is a freelance writer, blogger and editor with 8+ years of experience working across diverse domains. A self-described "secret blogger," he has dedicated years to researching the philosophical depths of Indian classical arts — especially Natya Shastra and its cross-references to the Vedas, Upanishads and ancient cosmic sciences.<br/><br/>His research is not academic in the conventional sense — it is lived, intuitive and deeply personal. He believes that every step a dancer takes has a direct connection to the universe, and that music, dance and art are ultimately tools for spiritual realization and the resurrection of Sanatana Dharma.</p>
+      </div>
+
+      <div class="ab rv">
+        <div class="ab-lbl">Mission</div>
+        <h3 class="ab-title">What aestheticsofsociety Stands For</h3>
+        <p class="ab-text">The aestheticsofsociety platform was created to bridge the gap between ancient Indian knowledge systems and the modern world. Through YouTube videos, WordPress articles and social media, Ramachandra aims to educate dancers, gurus, scholars and art lovers on the practical importance of Vedic texts, Sanskrit grammar and the Natya Shastra.<br/><br/>The blog's subtitle — <em>Dharmo Rakshati Rakshitaha</em> — captures the philosophy: when we protect Dharma, Dharma protects us. Art, music and culture are not separate from this protection — they are its very expression.</p>
+      </div>
+
+      <div class="ab rv">
+        <div class="ab-lbl">Research Areas</div>
+        <h3 class="ab-title">Topics of Deep Study</h3>
+        <ul class="val-list">
+          <li>Natya Shastra by Bharata Muni — comprehensive cross-referencing</li>
+          <li>Maheshwara Sutras and Sanskrit language phonetics</li>
+          <li>Rasa Theory (Abhinava Gupta) &amp; Dhwani Theory (Ananda Vardhana)</li>
+          <li>Chandogya Upanishad, Taittiriya Upanishad &amp; Vedic cosmology</li>
+          <li>Vivekachudamani — Adi Shankaracharya's philosophy</li>
+          <li>Hiranya Garbha Sukta &amp; its connection to classical dance</li>
+          <li>History of Indian aesthetics from 7th century to present</li>
+          <li>Yoga Shastra by Siddhendra Yogi &amp; Kuchipudi dance tradition</li>
+          <li>Vishnu Sahasranama &amp; Lalitha Sahasranama valli</li>
+        </ul>
+      </div>
+
+      <div class="ab rv">
+        <div class="ab-lbl">Experience</div>
+        <h3 class="ab-title">Background &amp; Work</h3>
+        <p class="ab-text">Worked across various cross-domain profiles with 8+ years of experience. Currently working as a freelance trainer, blogger and YouTuber. Also offers services in spiritual and emotional healing. Available for writing, editing, training and consulting work in the areas of Indian classical arts, philosophy and culture.<br/><br/>Contact: <strong>naradlaramachandra@yahoo.com</strong> | 09121469630</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra</div>
+  </footer>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PAGE 3 — VIDEOS
+══════════════════════════════════ -->
+<section class="page" id="videos">
+  <div class="sec-head rv">
+    <div class="sec-tag">YouTube Channel</div>
+    <h2 class="sec-title">Videos by aestheticsofsociety</h2>
+    <p class="sec-desc">In-depth explorations of Natya Shastra, Vedic philosophy, Indian classical arts and societal aesthetics.</p>
+  </div>
+
+  <div class="vid-page">
+    <div class="ch-banner rv">
+      <img src="images/profile.jpg" class="ch-logo" alt="aestheticsofsociety"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="ch-logo-fb" style="display:none">A</div>
+      <div class="ch-info">
+        <h2>aestheticsofsociety</h2>
+        <p>@aestheticsofsociety · Natya Shastra · Vedic Philosophy · Indian Classical Arts · Dance &amp; Music</p>
+      </div>
+      <a class="ch-sub" href="https://www.youtube.com/@aestheticsofsociety" target="_blank" rel="noopener">Subscribe ↗</a>
+    </div>
+
+    <div class="vid-section-title">🔥 10 Recent Popular Videos</div>
+    <div class="vid-grid" id="vidGrid">
+      <!-- Rendered by JS -->
+    </div>
+
+    <div style="text-align:center;padding-bottom:1rem">
+      <p style="font-size:13.5px;color:var(--ink3);margin-bottom:1rem">View the complete video library on YouTube</p>
+      <a class="btn-p" href="https://www.youtube.com/@aestheticsofsociety" target="_blank" rel="noopener">View All Videos on YouTube ↗</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra</div>
+  </footer>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PAGE 4 — ARTICLES
+══════════════════════════════════ -->
+<section class="page" id="articles">
+  <div class="sec-head rv">
+    <div class="sec-tag">Written Research</div>
+    <h2 class="sec-title">Articles &amp; Essays</h2>
+    <p class="sec-desc">Deep research articles on Natya Shastra, Vedic philosophy, Indian aesthetics and classical performing arts published on aestheticsofsociety.wordpress.com</p>
+  </div>
+
+  <div class="art-page">
+
+    <!-- HIGHLIGHTED / WELL-READ ARTICLES -->
+    <div class="highlight-strip rv">
+      <div class="hs-label">Most Read &amp; Highlighted Articles</div>
+      <div class="hs-grid">
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2019/10/27/history-of-indian-aesthetics-part-1/" target="_blank" rel="noopener">
+          <div class="hs-cat">Indian Aesthetics</div>
+          <div class="hs-title">History of Indian Aesthetics Part 1</div>
+          <div class="hs-reads">★★★★★ Most Read</div>
+        </a>
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2018/12/21/natyashastra/" target="_blank" rel="noopener">
+          <div class="hs-cat">Natya Shastra</div>
+          <div class="hs-title">Natya Shastra — In-depth Study</div>
+          <div class="hs-reads">★★★★★ Featured</div>
+        </a>
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2019/09/01/the-14-shabdas-explanation-from-damruka/" target="_blank" rel="noopener">
+          <div class="hs-cat">Sanskrit · Shiva Sutras</div>
+          <div class="hs-title">The 14 Shabdas from Damruka</div>
+          <div class="hs-reads">★★★★☆ Highly Read</div>
+        </a>
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2019/08/31/cosmic-study-using-the-natya-shastra/" target="_blank" rel="noopener">
+          <div class="hs-cat">Cosmic Science</div>
+          <div class="hs-title">Cosmic Study Using Natya Shastra</div>
+          <div class="hs-reads">★★★★☆ Popular</div>
+        </a>
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2019/08/31/vivekachudamaniand-its-reference-to-natya-shastra/" target="_blank" rel="noopener">
+          <div class="hs-cat">Philosophy</div>
+          <div class="hs-title">Vivekachudamani &amp; Natya Shastra</div>
+          <div class="hs-reads">★★★★☆ Well Read</div>
+        </a>
+        <a class="hs-item" href="https://aestheticsofsociety.wordpress.com/2019/09/01/vishnu-sahasranama2/" target="_blank" rel="noopener">
+          <div class="hs-cat">Upanishads</div>
+          <div class="hs-title">Vishnu Sahasranama &amp; Taittiriya Upanishad</div>
+          <div class="hs-reads">★★★★☆ Well Read</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FEATURED -->
+    <div class="art-featured rv">
+      <a class="art-card" href="https://aestheticsofsociety.wordpress.com/2019/10/27/history-of-indian-aesthetics-part-1/" target="_blank" rel="noopener">
+        <div class="art-img">🏛️</div>
+        <div class="art-body">
+          <div class="art-cat">Indian Aesthetics · Featured</div>
+          <h3 class="art-title">History of Indian Aesthetics Part 1</h3>
+          <p class="art-exc">From Bharata's Natya Shastra to 11th century Mammata — tracing the evolution of Rasa Theory and Dhwani theory through Ananda Vardhana, Abhinava Gupta and how ancient scholars shaped Indian aesthetic philosophy over centuries.</p>
+          <div class="art-foot"><span>Naredla Ramachandra · Oct 2019</span><span style="color:var(--accent);font-weight:500">Read on WordPress →</span></div>
+        </div>
+      </a>
+      <a class="art-card" href="https://aestheticsofsociety.wordpress.com/2018/12/21/natyashastra/" target="_blank" rel="noopener">
+        <div class="art-img sm">🎭</div>
+        <div class="art-body">
+          <div class="art-cat">Natya Shastra</div>
+          <h3 class="art-title sm">Natya Shastra — A Complete Study</h3>
+          <p class="art-exc">Comprehensive exploration of Bharata Muni's encyclopedic treatise on dance, music and drama.</p>
+          <div class="art-foot"><span>Dec 2018</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ARTICLES GRID -->
+    <div class="sec-tag" style="margin-bottom:.9rem">All Published Articles</div>
+    <div class="art-grid">
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/09/01/the-14-shabdas-explanation-from-damruka/" target="_blank" rel="noopener">
+        <div class="art-img sm">🔱</div>
+        <div class="art-body">
+          <div class="art-cat">Sanskrit · Shiva Sutras</div>
+          <h3 class="art-title sm">The 14 Shabdas from Damruka</h3>
+          <p class="art-exc">Maheshwara Sutras, IAST transliteration and the healing powers of Sanskrit phonemes from Lord Shiva's Damru.</p>
+          <div class="art-foot"><span>Sep 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/08/31/shastras-and-its-reference-to-cosmic-study/" target="_blank" rel="noopener">
+        <div class="art-img sm">🌌</div>
+        <div class="art-body">
+          <div class="art-cat">Vedic Science</div>
+          <h3 class="art-title sm">Shastras &amp; Their Cosmic Reference</h3>
+          <p class="art-exc">Vedas contain all knowledge — motion of Earth in Rig Veda, value of π in Bhaskara, and Aryabhatta's mathematical genius.</p>
+          <div class="art-foot"><span>Aug 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/08/31/cosmic-study-using-the-natya-shastra/" target="_blank" rel="noopener">
+        <div class="art-img sm">🌠</div>
+        <div class="art-body">
+          <div class="art-cat">Cosmic Study</div>
+          <h3 class="art-title sm">Cosmic Study Using Natya Shastra</h3>
+          <p class="art-exc">Shastras dealt with cosmic science millennia ago. Every dance step has a direct connection to the universe — the seers could even time travel.</p>
+          <div class="art-foot"><span>Aug 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/08/31/hiranya-garbha-sukta-cross-reference-to-natya-shastra/" target="_blank" rel="noopener">
+        <div class="art-img sm">🤰</div>
+        <div class="art-body">
+          <div class="art-cat">Vedic · Dance</div>
+          <h3 class="art-title sm">Hiranya Garbha Sukta &amp; Natya Shastra</h3>
+          <p class="art-exc">The female body as Brahman — why pregnant dancers must understand Vedic cosmology and the nine planets within the womb.</p>
+          <div class="art-foot"><span>Aug 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/08/31/vivekachudamaniand-its-reference-to-natya-shastra/" target="_blank" rel="noopener">
+        <div class="art-img sm">📖</div>
+        <div class="art-body">
+          <div class="art-cat">Advaita · Philosophy</div>
+          <h3 class="art-title sm">Vivekachudamani &amp; Natya Shastra</h3>
+          <p class="art-exc">Shankaracharya's Vivekachudamani deals with the six pillars of dharma that form the base for the nava rasas and classical performance.</p>
+          <div class="art-foot"><span>Aug 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/09/01/vishnu-sahasranama2/" target="_blank" rel="noopener">
+        <div class="art-img sm">🪷</div>
+        <div class="art-body">
+          <div class="art-cat">Upanishads · Vedanta</div>
+          <h3 class="art-title sm">Vishnu Sahasranama &amp; Taittiriya Upanishad</h3>
+          <p class="art-exc">Cross-referencing the Brahmananda Valli — the five sheaths of existence, manomaya kosha and the path to Hiranyagarbha.</p>
+          <div class="art-foot"><span>Sep 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/09/01/chandogya-upanishad3/" target="_blank" rel="noopener">
+        <div class="art-img sm">☯️</div>
+        <div class="art-body">
+          <div class="art-cat">Upanishads</div>
+          <h3 class="art-title sm">Chandogya Upanishad — Body, Mind &amp; Pancha Bhootha</h3>
+          <p class="art-exc">The Chandogya Upanishad's vision of body-mind-soul compared to the five elements, and its implications for Natya Shastra pedagogy.</p>
+          <div class="art-foot"><span>Sep 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2018/12/14/87/" target="_blank" rel="noopener">
+        <div class="art-img sm">🕌</div>
+        <div class="art-body">
+          <div class="art-cat">Agama Shastra · Tantra</div>
+          <h3 class="art-title sm">Natya Shastra &amp; Agama Shastra</h3>
+          <p class="art-exc">Mudras and Hastas as sources of energy — the tantra-mantra connection in classical dance and why sacred spaces affect the performer.</p>
+          <div class="art-foot"><span>Dec 2018</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+      <a class="art-card rv" href="https://aestheticsofsociety.wordpress.com/2019/01/31/natya-shastra-and-its-relevance-to-dharmas/" target="_blank" rel="noopener">
+        <div class="art-img sm">⚖️</div>
+        <div class="art-body">
+          <div class="art-cat">Dharma · Natya Shastra</div>
+          <h3 class="art-title sm">Natya Shastra &amp; Its Relevance to Dharmas</h3>
+          <p class="art-exc">Natya Shastra is the bible for dance and the resurrection of Sanatana Dharma. Rasa, Dhwani and Yoga Shastra as pillars of divine expression.</p>
+          <div class="art-foot"><span>Jan 2019</span><span style="color:var(--accent)">Read →</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <a class="btn-p" href="https://aestheticsofsociety.wordpress.com/" target="_blank" rel="noopener">Read All Articles on WordPress ↗</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra</div>
+  </footer>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PAGE 5 — BLOG & GALLERY
+══════════════════════════════════ -->
+<section class="page" id="blog">
+  <div class="sec-head rv">
+    <div class="sec-tag">Blog &amp; Gallery</div>
+    <h2 class="sec-title">Latest Posts &amp; Visual Gallery</h2>
+    <p class="sec-desc">Reflections, commentary and visual explorations from the aestheticsofsociety world.</p>
+  </div>
+
+  <div class="blog-page">
+    <div class="sec-tag" style="margin-bottom:.9rem">Blog Posts</div>
+    <div class="blog-grid">
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">27</div><div class="blog-my"><div>Oct</div><div>2019</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Indian Aesthetics</div>
+          <h3 class="blog-title">History of Indian Aesthetics Part 1</h3>
+          <p class="blog-desc">From 7th century rejection of Rasa theory by Bhama and Dandin, to Abhinava Gupta's masterwork Abhinav Bharti in the 10th century — tracing 1400 years of aesthetic philosophy.</p>
+        </div>
+      </div>
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">01</div><div class="blog-my"><div>Sep</div><div>2019</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Shiva Sutras</div>
+          <h3 class="blog-title">The 14 Shabdas from Damruka — Maheshwara Sutras</h3>
+          <p class="blog-desc">Shiva played His Damru 14 times, giving rise to the Sanskrit alphabet. IAST transliteration, the Akshara-samamnaya and the healing powers of each phoneme.</p>
+        </div>
+      </div>
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">31</div><div class="blog-my"><div>Aug</div><div>2019</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Vedic Cosmology</div>
+          <h3 class="blog-title">Shastras and Their Reference to Cosmic Study</h3>
+          <p class="blog-desc">Rig Veda, Aryabhatta, Bhaskara — proof that Vedas contained the knowledge of Earth's motion, value of π, and advanced mathematical thought centuries before the West.</p>
+        </div>
+      </div>
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">21</div><div class="blog-my"><div>Dec</div><div>2018</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Natya Shastra</div>
+          <h3 class="blog-title">Natya Shastra — Origin &amp; Purpose</h3>
+          <p class="blog-desc">The composition date controversy, 36,000-verse Adi Bharata, rasa theory, the nature of Thandava dance and how Natya Shastra serves as the 5th Veda.</p>
+        </div>
+      </div>
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">31</div><div class="blog-my"><div>Jan</div><div>2019</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Dharma</div>
+          <h3 class="blog-title">Natya Shastra &amp; Its Relevance to Dharmas</h3>
+          <p class="blog-desc">How Natya Shastra is classified into Bhautika and Prakriti, and why Yoga Shastra by Siddhendra Yogi is its living continuation in Kuchipudi tradition.</p>
+        </div>
+      </div>
+      <div class="blog-card rv">
+        <div class="blog-datebar"><div class="blog-day">14</div><div class="blog-my"><div>Dec</div><div>2018</div></div></div>
+        <div class="blog-body">
+          <div class="blog-type">Blog · Agama Shastra</div>
+          <h3 class="blog-title">Natya Shastra Reference to Agama Shastra</h3>
+          <p class="blog-desc">Mudras as energy emitters, sacred spaces and the tantra-mantra dimension of classical dance — what every dancer must understand about Sabarimala and the body.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gal-label rv">Visual Gallery</div>
+    <div class="gal-grid">
+      <div class="gal-item rv">🎭</div>
+      <div class="gal-item rv">🏛️</div>
+      <div class="gal-item rv">🪷</div>
+      <div class="gal-item rv">📿</div>
+      <div class="gal-item rv">🎵</div>
+      <div class="gal-item rv">🌺</div>
+      <div class="gal-item rv">🔱</div>
+      <div class="gal-item rv">☯️</div>
+      <div class="gal-item rv">🌌</div>
+    </div>
+    <p style="font-size:13px;color:var(--ink3);margin-top:1.2rem;text-align:center">Upload your images to the <code>images/</code> folder and update gallery items with &lt;img&gt; tags</p>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra</div>
+  </footer>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PAGE 6 — CONTACT
+══════════════════════════════════ -->
+<section class="page" id="contact">
+  <div class="sec-head rv">
+    <div class="sec-tag">Get in Touch</div>
+    <h2 class="sec-title">Contact Naredla Ramachandra</h2>
+    <p class="sec-desc">For writing, editing, training, consulting or spiritual and emotional healing services.</p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="con-info rv">
+      <h2>Let's Connect</h2>
+      <p>Available for freelance writing, blogging, editing, training and consulting work in Indian classical arts, philosophy and culture.</p>
+      <div class="con-item">
+        <div class="con-ico">✉</div>
+        <div>
+          <div class="con-lbl">Email</div>
+          <div class="con-val">naradlaramachandra@yahoo.com</div>
+        </div>
+      </div>
+      <div class="con-item">
+        <div class="con-ico">📞</div>
+        <div>
+          <div class="con-lbl">Phone</div>
+          <div class="con-val">09121469630 / 09121379100</div>
+        </div>
+      </div>
+      <div class="con-item">
+        <div class="con-ico">▶</div>
+        <div>
+          <div class="con-lbl">YouTube</div>
+          <div class="con-val">@aestheticsofsociety</div>
+        </div>
+      </div>
+      <div class="con-item">
+        <div class="con-ico">📝</div>
+        <div>
+          <div class="con-lbl">Blog</div>
+          <div class="con-val">aestheticsofsociety.wordpress.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="con-form rv">
+      <h3>Send a Message</h3>
+      <form id="contactForm" onsubmit="sendMsg(event)">
+        <div class="fg-row">
+          <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required/></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
+        </div>
+        <div class="fg">
+          <label>Subject</label>
+          <select>
+            <option>Writing / Blogging Collaboration</option>
+            <option>Natya Shastra Research</option>
+            <option>Spiritual / Emotional Healing</option>
+            <option>Training / Consulting</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="Your message..." required></textarea></div>
+        <button class="con-submit" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-logo">aestheticsofsociety</div>
+    <div class="ft-tag">Dharmo Rakshati Rakshitaha</div>
+    <div class="ft-links">
+      <a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a>
+      <a onclick="showPage('videos')">Videos</a><a onclick="showPage('articles')">Articles</a>
+      <a onclick="showPage('blog')">Blog</a><a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="ft-copy">© 2025 aestheticsofsociety · Naredla Ramachandra</div>
+  </footer>
+</section>
+
+
+<script>
+// ── NAVIGATION ──
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('nav a, .mob-nav a').forEach(a=>a.classList.remove('active'));
+  const pg=document.getElementById(id);
+  if(pg) pg.classList.add('active');
+  document.querySelectorAll(`[data-page="${id}"]`).forEach(a=>a.classList.add('active'));
+  window.scrollTo(0,0);
+  document.getElementById('mobNav').classList.remove('open');
+  setTimeout(()=>{
+    document.querySelectorAll(`#${id} .rv`).forEach(el=>el.classList.add('on'));
+  },120);
+}
+
+function toggleMob(){
+  document.getElementById('mobNav').classList.toggle('open');
+}
+
+document.querySelectorAll('nav a,[data-page]').forEach(a=>{
+  if(a.dataset.page) a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.page)});
+});
+document.querySelectorAll('[data-goto]').forEach(b=>{
+  b.addEventListener('click',()=>showPage(b.dataset.goto));
+});
+
+// ── REVEAL ON SCROLL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('on')});
+},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ── FLUTE MUSIC (Web Audio API) ──
+let playing=false,actx=null,mGain=null,mTimer=null;
+
+function createFlute(){
+  actx=new(window.AudioContext||window.webkitAudioContext)();
+  mGain=actx.createGain();
+  mGain.gain.setValueAtTime(0.045,actx.currentTime);
+  mGain.connect(actx.destination);
+  const freqs=[523.25,587.33,659.25,698.46,783.99,880,987.77,1046.5];
+  const seq=[0,2,4,5,4,2,0,1,3,4,6,5,4,3,2,0,1,2,5,4,3,2,1,0];
+  const durs=[0.7,0.5,0.8,0.5,0.6,0.5,1.0,0.5,0.6,0.7,0.5,0.5,0.7,0.8,0.5,1.1,0.5,0.6,0.8,0.5,0.6,0.5,0.8,1.2];
+  let t=actx.currentTime+0.2;
+  function loop(){
+    if(!playing) return;
+    const ls=t;
+    seq.forEach((ni,i)=>{
+      const f=freqs[ni],d=durs[i];
+      const osc=actx.createOscillator(),og=actx.createGain(),flt=actx.createBiquadFilter();
+      const lfo=actx.createOscillator(),lfog=actx.createGain();
+      flt.type='lowpass';flt.frequency.value=f*2.5;
+      osc.type='sine';osc.frequency.setValueAtTime(f,t);
+      lfo.frequency.value=5.2;lfog.gain.value=f*0.006;
+      lfo.connect(lfog);lfog.connect(osc.frequency);
+      og.gain.setValueAtTime(0,t);
+      og.gain.linearRampToValueAtTime(0.55,t+0.04);
+      og.gain.setValueAtTime(0.45,t+d*0.75);
+      og.gain.linearRampToValueAtTime(0,t+d);
+      osc.connect(flt);flt.connect(og);og.connect(mGain);
+      lfo.start(t);osc.start(t);lfo.stop(t+d);osc.stop(t+d);
+      // breath noise
+      const len=Math.ceil(actx.sampleRate*d);
+      const buf=actx.createBuffer(1,len,actx.sampleRate);
+      const dd=buf.getChannelData(0);
+      for(let j=0;j<len;j++) dd[j]=(Math.random()*2-1)*0.011;
+      const ns=actx.createBufferSource(),nf=actx.createBiquadFilter(),ng=actx.createGain();
+      ns.buffer=buf;nf.type='bandpass';nf.frequency.value=f*2.2;nf.Q.value=0.9;
+      ng.gain.setValueAtTime(0.07,t);ng.gain.linearRampToValueAtTime(0,t+d);
+      ns.connect(nf);nf.connect(ng);ng.connect(mGain);
+      ns.start(t);ns.stop(t+d);
+      t+=d*0.88;
+    });
+    mTimer=setTimeout(loop,(t-actx.currentTime-0.6)*1000);
+  }
+  loop();
+}
+
+function toggleMusic(){
+  const waves=document.getElementById('waves');
+  const lbl=document.getElementById('musicLbl');
+  if(!playing){
+    playing=true;
+    waves.classList.remove('off');
+    lbl.textContent='Playing ♪';
+    createFlute();
+  } else {
+    playing=false;
+    waves.classList.add('off');
+    lbl.textContent='Flute Music';
+    clearTimeout(mTimer);
+    if(actx){actx.close();actx=null;}
+  }
+}
+function renderVideos(){
+  const g=document.getElementById('vidGrid');
+  if(!g) return;
+  g.innerHTML=VIDEOS.map((v,i)=>`
+    <div class="vid-card rv">
+      <div class="vid-thumb">
+        <iframe src="https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="vid-info">
+        <div class="vid-num">#${String(i+1).padStart(2,'0')} · ${v.topic}</div>
+        <div class="vid-title">${v.title}</div>
+        <div class="vid-meta"><span>📅 ${v.date}</span><span>aestheticsofsociety</span></div>
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('#vidGrid .rv').forEach(el=>obs.observe(el));
+}
+
+// ── CONTACT FORM ──
+function sendMsg(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.con-submit');
+  btn.textContent='Message Sent ✓';
+  btn.style.background='var(--sage)';
+  setTimeout(()=>{btn.textContent='Send Message';btn.style.background='';e.target.reset();},3200);
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',()=>{
+  showPage('home');
+  renderVideos();
+});
+</script>
+</body>
+</html>
